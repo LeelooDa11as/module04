@@ -23,9 +23,9 @@ Dog &Dog::operator=( Dog const &other ) {
 	return *this;
 }
 
-Dog::Dog( const Dog &base ) {
+Dog::Dog( const Dog &base ) : Animal( base ) {
 	std::cout << BLUE << "Dog copy construcor called" << RESET << std::endl;
-	this->type = base.type;
+	//this->type = base.type;
 	if (base._brain)
 		this->_brain = new Brain( *base._brain );
 	else

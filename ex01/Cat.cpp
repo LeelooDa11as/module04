@@ -23,9 +23,9 @@ Cat &Cat::operator=( Cat const &other ) {
 	return (*this);
 }
 
-Cat::Cat( const Cat &base ) {
+Cat::Cat( const Cat &base ) : Animal( base ) {
 	std::cout << PINK << "Cat copy construcor called" << RESET <<std::endl;
-	this->type = base.type;
+	//this->type = base.type;
 	if (base._brain)
 		this->_brain = new Brain( *base._brain );
 	else
