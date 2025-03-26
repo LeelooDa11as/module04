@@ -2,15 +2,15 @@
 #define RESET "\033[0m"  
 #define BLUE "\033[38;2;135;206;235m"
 
-Dog::Dog( void ) {
-    std::cout << BLUE << "Dog class construcor" << RESET <<std::endl;
+Dog::Dog( void ) :Animal() {
+    std::cout << BLUE << "Dog default constructor called" << RESET <<std::endl;
 	setType("Dog");
 	this->_brain = new Brain();
     return;
 }
 
 Dog &Dog::operator=( Dog const &other ) {
-    std::cout << BLUE << "Dog copy assignment constructor" << RESET << std::endl;
+    std::cout << BLUE << "Dog copy assignment operator called" << RESET << std::endl;
 	if (this != &other)	{
 		this->type = other.type;
 		if (this->_brain)
@@ -24,7 +24,7 @@ Dog &Dog::operator=( Dog const &other ) {
 }
 
 Dog::Dog( const Dog &base ) : Animal( base ) {
-	std::cout << BLUE << "Dog copy construcor called" << RESET << std::endl;
+	std::cout << BLUE << "Dog copy construcor called called" << RESET << std::endl;
 	//this->type = base.type;
 	if (base._brain)
 		this->_brain = new Brain( *base._brain );
@@ -35,7 +35,7 @@ Dog::Dog( const Dog &base ) : Animal( base ) {
 
 Dog::~Dog( void ) {
 	delete this->_brain;
-    std::cout << BLUE << "Dog class destructor" << RESET <<std::endl;
+    std::cout << BLUE << "Dog destructor called" << RESET <<std::endl;
     return;
 }
 

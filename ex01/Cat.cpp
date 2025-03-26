@@ -2,15 +2,15 @@
 #define RESET "\033[0m"  
 #define PINK  "\033[38;2;218;24;132m" 
 
-Cat::Cat( void ) {
-    std::cout << PINK <<"Cat class construcor" << RESET <<std::endl;
+Cat::Cat( void ) : Animal() {
+    std::cout << PINK <<"Cat default constructor called" << RESET <<std::endl;
 	setType("Cat");
 	this->_brain = new Brain();
     return;
 }
 
 Cat &Cat::operator=( Cat const &other ) {
-    std::cout << PINK << "Cat copy assignment constructor" << RESET << std::endl;
+    std::cout << PINK << "Cat copy assignment operator called" << RESET << std::endl;
 	if (this != &other)	{
 		this->type = other.type;
 		if (this->_brain)
@@ -25,7 +25,6 @@ Cat &Cat::operator=( Cat const &other ) {
 
 Cat::Cat( const Cat &base ) : Animal( base ) {
 	std::cout << PINK << "Cat copy construcor called" << RESET <<std::endl;
-	//this->type = base.type;
 	if (base._brain)
 		this->_brain = new Brain( *base._brain );
 	else
@@ -35,7 +34,7 @@ Cat::Cat( const Cat &base ) : Animal( base ) {
 
 Cat::~Cat( void ) {
 	delete this->_brain;
-    std::cout << PINK << "Cat class destructor" << RESET << std::endl;
+    std::cout << PINK << "Cat destructor called" << RESET << std::endl;
     return;
 }
 

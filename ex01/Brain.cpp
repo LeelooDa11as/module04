@@ -3,7 +3,7 @@
 #define RESET  "\033[0m" 
 
 Brain::Brain( void ) {
-	std::cout << YELLOW << "Brain constructor" << RESET << std::endl;
+	std::cout << YELLOW << "Brain constructor called" << RESET << std::endl;
 	for (int i = 0; i < 100; i++){
 		this->setIdeas(i, "empty");
 	}
@@ -11,7 +11,7 @@ Brain::Brain( void ) {
 }
 
 Brain::Brain( Brain const &base ) {
-	std::cout << YELLOW << "Brain copy constructor" << RESET << std::endl;
+	std::cout << YELLOW << "Brain copy constructor called" << RESET << std::endl;
 	for (int i = 0; i < 100; i++) {
 		this->_ideas[i] = base._ideas[i];
 	}
@@ -19,7 +19,7 @@ Brain::Brain( Brain const &base ) {
 }
 
 Brain	&Brain::operator=( Brain const &other ) {
-	std::cout << YELLOW << "Brain copy assigment operator" << RESET << std::endl;
+	std::cout << YELLOW << "Brain copy assigment operator called" << RESET << std::endl;
 	if (this != &other)
 	{
 		for (int i = 0; i < 100; i++)
@@ -29,7 +29,7 @@ Brain	&Brain::operator=( Brain const &other ) {
 }
 
 Brain::~Brain( void ) {
-	std::cout << YELLOW << "Brain destructor" << RESET << std::endl;
+	std::cout << YELLOW << "Brain destructor called" << RESET << std::endl;
 	return;
 }
 

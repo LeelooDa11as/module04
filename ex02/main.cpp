@@ -2,90 +2,55 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-int	main(void)
-{
-	/*const Animal*	meta = new Animal();
-	const Animal*	j = new Dog();
-	const Animal*	i = new Cat();
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+int main() {
+    // Create objects of Cat and Dog
+    Dog dog1;
+    Cat cat1;
 
-	j->makeSound();
-	i->makeSound();
-	meta->makeSound();
+    // Set some ideas for both
+    dog1.setIdea(0, "Chase a ball");
+    dog1.setIdea(1, "Bark at the mailman");
 
-	delete i;
-	delete j;
-	delete meta;*/
+    cat1.setIdea(0, "Climb a tree");
+    cat1.setIdea(1, "Chase a mouse");
 
-	/*
-	Animal *Animals[10];
+    // Output ideas for both animals
+    std::cout << "Dog idea 1: " << dog1.getIdea(0) << std::endl;
+    std::cout << "Dog idea 2: " << dog1.getIdea(1) << std::endl;
 
-	for (int i = 0; i < 5; i++)
-		Animals[i] = new Dog();
+    std::cout << "Cat idea 1: " << cat1.getIdea(0) << std::endl;
+    std::cout << "Cat idea 2: " << cat1.getIdea(1) << std::endl;
 
-	for (int i = 5; i < 10; i++)
-		Animals[i] = new Cat();
-	
-	for (int i = 0; i < 10; i++)
-		Animals[i]->makeSound();
+    // Test the copy constructor
+    Dog dog2 = dog1;
+    Cat cat2 = cat1;
 
-	for (int i = 0; i < 10; i++)
-		delete Animals[i];
-	*/
+    std::cout << "After copy constructor:" << std::endl;
+    std::cout << "Dog 2 idea 1: " << dog2.getIdea(0) << std::endl;
+    std::cout << "Cat 2 idea 1: " << cat2.getIdea(0) << std::endl;
 
-	Dog dog1;
+    // Test the copy assignment operator
+    Dog dog3;
+    dog3 = dog1;
+    Cat cat3;
+    cat3 = cat1;
 
-	dog1.setIdea(0, "dog idea 1");
-	std::cout << dog1.getIdea(0) << " " << std::endl;
-	std::cout << dog1.getIdea(1) << " " << std::endl;
-	
-	Dog dog4;
-	Dog dog2;
-	dog2 = dog4;
-	
-	dog2.setIdea(0, "dog2 idea 1");
-	std::cout << dog1.getIdea(0) << " " << std::endl;
-	std::cout << dog1.getIdea(1) << " " << std::endl;
-	std::cout << dog2.getIdea(0) << " " << std::endl;
-	std::cout << dog2.getIdea(1) << " " << std::endl;
-	
-	Dog dog3(dog2);
-	//dog2.setIdea(0, "dog2 idea 2");
-	dog3.setIdea(1, "dog3 idea 1");
-	std::cout << dog2.getIdea(0) << " " << std::endl;
-	std::cout << dog2.getIdea(-1) << " " << std::endl;
-	std::cout << dog3.getIdea(0) << " " << std::endl;
-	std::cout << dog3.getIdea(1) << " " << std::endl;
-	
-	dog1.makeSound();
-	
-		/*------------------------------------------*/
-		/*Cat cat1;
-	
-		cat1.setIdea(0, "cat idea 1");
-		std::cout << cat1.getIdea(0) << " " << std::endl;
-		std::cout << cat1.getIdea(1) << " " << std::endl;
-	
-		Cat cat2 = cat1;
-	
-		cat2.setIdea(0, "cat2 idea 1");
-		std::cout << cat1.getIdea(0) << " " << std::endl;
-		std::cout << cat1.getIdea(1) << " " << std::endl;
-		std::cout << cat2.getIdea(0) << " " << std::endl;
-		std::cout << cat2.getIdea(1) << " " << std::endl;
-	
-		Cat cat3(cat2);
-		cat2.setIdea(0, "cat2 idea 2");
-		cat3.setIdea(0, "cat3 idea 1");
-		std::cout << cat2.getIdea(0) << " " << std::endl;
-		std::cout << cat2.getIdea(1) << " " << std::endl;
-		std::cout << cat3.getIdea(0) << " " << std::endl;
-		std::cout << cat3.getIdea(1) << " " << std::endl;
-	
-		cat1.makeSound();*/
+    std::cout << "After copy assignment:" << std::endl;
+    std::cout << "Dog 3 idea 1: " << dog3.getIdea(0) << std::endl;
+    std::cout << "Cat 3 idea 1: " << cat3.getIdea(0) << std::endl;
 
-	return (0);
+    // Make animals make sounds
+    dog1.makeSound();
+    cat1.makeSound();
+
+    dog2.makeSound();
+    cat2.makeSound();
+
+    dog3.makeSound();
+    cat3.makeSound();
+
+    return 0;
 }

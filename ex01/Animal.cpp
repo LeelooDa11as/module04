@@ -3,13 +3,13 @@
 #define GREEN  "\033[38;2;143;204;102m"
 
 Animal::Animal( void ) {
-    std::cout << GREEN << "Animal class construcor" << RESET << std::endl;
+    std::cout << GREEN << "Animal class constructor" << RESET << std::endl;
 	setType("Animal");
     return;
 }
 
 Animal &Animal::operator=( Animal const &other ) {
-    std::cout << GREEN << "Animal assignation constructor" << RESET << std::endl;
+    std::cout << GREEN << "Animal copy assignment operator called" << RESET << std::endl;
 	if (this != &other)	{
 		type = other.type;
 	}
@@ -23,7 +23,7 @@ Animal::Animal( const Animal &base ) {
 }
 
 Animal::~Animal( void ) {
-    std::cout << GREEN << "Animal class destructor" << RESET << std::endl;
+    std::cout << GREEN << "Animal destructor called" << RESET << std::endl;
     return;
 }
 

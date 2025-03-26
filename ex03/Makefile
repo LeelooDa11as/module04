@@ -1,5 +1,5 @@
-NAME = animal
-SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
+NAME = game
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))

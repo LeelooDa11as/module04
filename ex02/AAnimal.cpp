@@ -3,13 +3,13 @@
 #define GREEN  "\033[38;2;143;204;102m"
 
 AAnimal::AAnimal( void ) {
-    std::cout << GREEN << "AAnimal default construcor" << RESET << std::endl;
+    std::cout << GREEN << "AAnimal default constructor called" << RESET << std::endl;
 	setType("AAnimal");
     return;
 }
 
 AAnimal &AAnimal::operator=( AAnimal const &other ) {
-    std::cout << GREEN << "AAnimal assignation constructor" << RESET << std::endl;
+    std::cout << GREEN << "AAnimal copy assignment operator called" << RESET << std::endl;
 	if (this != &other)	{
 		type = other.type;
 	}
@@ -17,19 +17,14 @@ AAnimal &AAnimal::operator=( AAnimal const &other ) {
 }
 
 AAnimal::AAnimal( const AAnimal &base ) {
-	std::cout << GREEN << " AAnimal copy construcor called" << RESET << std::endl;
+	std::cout << GREEN << " AAnimal copy constructor called" << RESET << std::endl;
 	this->type = base.type;
 	return;
 }
 
 AAnimal::~AAnimal( void ) {
-    std::cout << GREEN << "AAnimal class destructor" << RESET << std::endl;
+    std::cout << GREEN << "AAnimal destructor called" << RESET << std::endl;
     return;
-}
-
-void	AAnimal::makeSound( void ) const {
-	std::cout << GREEN << "AAnimal makes sound" << RESET << std::endl;
-	return;
 }
 
 std::string	AAnimal::getType( void ) const {

@@ -2,15 +2,15 @@
 #define RESET "\033[0m"  
 #define PINK  "\033[38;2;218;24;132m" 
 
-Cat::Cat( void ) {
-    std::cout << PINK <<"Cat class construcor" << RESET <<std::endl;
+Cat::Cat( void ) : AAnimal() {
+    std::cout << PINK <<"Cat default construcor called" << RESET <<std::endl;
 	setType("Cat");
 	this->_brain = new Brain();
     return;
 }
 
 Cat &Cat::operator=( Cat const &other ) {
-    std::cout << PINK << "Cat copy assignment constructor" << RESET << std::endl;
+    std::cout << PINK << "Cat copy assignment constructor called" << RESET << std::endl;
 	if (this != &other)	{
 		this->type = other.type;
 		if (this->_brain)
@@ -23,9 +23,10 @@ Cat &Cat::operator=( Cat const &other ) {
 	return (*this);
 }
 
-Cat::Cat( const Cat &base ) {
+//initiating _brain to NULL is to prevent garbage memory, redundant but good practise
+Cat::Cat( const Cat &base ) : AAnimal ( base ), _brain(NULL) {
 	std::cout << PINK << "Cat copy construcor called" << RESET <<std::endl;
-	this->type = base.type;
+	//this->type = base.type;
 	if (base._brain)
 		this->_brain = new Brain( *base._brain );
 	else
@@ -35,7 +36,7 @@ Cat::Cat( const Cat &base ) {
 
 Cat::~Cat( void ) {
 	delete this->_brain;
-    std::cout << PINK << "Cat class destructor" << RESET << std::endl;
+    std::cout << PINK << "Cat class destructor called" << RESET << std::endl;
     return;
 }
 
@@ -45,10 +46,13 @@ void	Cat::makeSound( void ) const {
 }
 
 void	Cat::setIdea( int i, std::string idea ) {
-	this->_brain->setIdeas(i, idea);
+	if (this->_brain) // redundant but just in case
+		this->_brain->setIdeas(i, idea);
 	return;
 }
 
 std::string	Cat::getIdea( int i ) const {
-	return (this->_brain->getIdeas(i));
+	if (this->_brain)
+		return (this->_brain->getIdeas(i));
+	return ("pointer is NULL");
 }
