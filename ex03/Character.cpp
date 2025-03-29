@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 18:15:27 by kkoval            #+#    #+#             */
+/*   Updated: 2025/03/29 19:01:52 by kkoval           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 
 #define RESET  "\033[0m"  
@@ -19,9 +31,15 @@ Character::Character( std::string name ) : _name(name) {
 
 Character::Character( Character const &base ) {
 	std::cout << GREEN << "Character copy constructor called" << RESET << std::endl;
+	this->_name = base._name;
+	//copying each materia in the inventory
 	for (int i=0; i < 4; i++)
-		this->_inventory[i] = NULL;
-	*this = base;
+	{
+		if (base._inventory[i])
+			this->_inventory[i] = base._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 	return;
 }
 
@@ -45,8 +63,11 @@ Character &Character::operator=( Character const &other ) {
 Character::~Character( void ) {
 	std::cout << GREEN << "Character destructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++) {
-		delete this->_inventory[i];
-		this->_inventory[i] = NULL;
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
 	}
 	return;
 }

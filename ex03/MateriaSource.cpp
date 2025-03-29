@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 18:17:34 by kkoval            #+#    #+#             */
+/*   Updated: 2025/03/29 19:19:20 by kkoval           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
  
 MateriaSource::MateriaSource( void ) {
@@ -33,6 +45,14 @@ MateriaSource &MateriaSource::operator=( MateriaSource const &other ) {
 
 MateriaSource::~MateriaSource( void ) {
 	std::cout << "MateriaSource destructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+		
+	}
 	return;
 }
 
@@ -65,3 +85,4 @@ AMateria*   MateriaSource::createMateria(std::string const& type)
 	}
 	return (0);
 }
+

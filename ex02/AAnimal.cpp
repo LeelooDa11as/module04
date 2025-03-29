@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 17:07:30 by kkoval            #+#    #+#             */
+/*   Updated: 2025/03/29 18:07:44 by kkoval           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AAnimal.hpp"
 #define RESET  "\033[0m"  
 #define GREEN  "\033[38;2;143;204;102m"
@@ -17,7 +29,7 @@ AAnimal &AAnimal::operator=( AAnimal const &other ) {
 }
 
 AAnimal::AAnimal( const AAnimal &base ) {
-	std::cout << GREEN << " AAnimal copy constructor called" << RESET << std::endl;
+	std::cout << GREEN << "AAnimal copy constructor called" << RESET << std::endl;
 	this->type = base.type;
 	return;
 }

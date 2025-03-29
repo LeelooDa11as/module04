@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/29 18:17:27 by kkoval            #+#    #+#              #
+#    Updated: 2025/03/29 18:20:13 by kkoval           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = game
 SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
 CC = c++
-C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -g -fsanitize=address
+C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -g #-fsanitize=address
 
 # color codes
 BLACK    =   \033[0;39m

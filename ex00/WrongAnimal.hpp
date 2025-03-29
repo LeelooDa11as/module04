@@ -6,7 +6,7 @@
 /*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:34:47 by kkoval            #+#    #+#             */
-/*   Updated: 2025/03/22 19:34:50 by kkoval           ###   ########.fr       */
+/*   Updated: 2025/03/29 16:21:11 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal
     WrongAnimal( void );
     WrongAnimal(WrongAnimal const &base);
     WrongAnimal &operator=( WrongAnimal const &other );
-    ~WrongAnimal( void );
+    virtual ~WrongAnimal( void );
 
 	void		makeSound( void ) const;
 	std::string	getType( void ) const;

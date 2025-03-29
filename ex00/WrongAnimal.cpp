@@ -6,7 +6,7 @@
 /*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:34:33 by kkoval            #+#    #+#             */
-/*   Updated: 2025/03/22 19:34:40 by kkoval           ###   ########.fr       */
+/*   Updated: 2025/03/29 15:49:52 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ WrongAnimal::WrongAnimal( void ) : type("WrongAnimal") {
 }
 
 WrongAnimal &WrongAnimal::operator=( WrongAnimal const &other ) {
-    std::cout << ORANGE << "WrongAnimal assignation operator called" << RESET << std::endl;
+    std::cout << ORANGE << "WrongAnimal assignment operator called" << RESET << std::endl;
 	if (this != &other)	{
 		type = other.type;
 	}

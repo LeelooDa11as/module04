@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 16:36:22 by kkoval            #+#    #+#             */
+/*   Updated: 2025/03/29 16:36:26 by kkoval           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 #define RESET "\033[0m"  
 #define BLUE "\033[38;2;135;206;235m"
@@ -52,4 +64,3 @@ void	Dog::setIdea( int i, std::string idea ) {
 std::string	Dog::getIdea( int i ) const {
 	return (this->_brain->getIdeas(i));
 }
-

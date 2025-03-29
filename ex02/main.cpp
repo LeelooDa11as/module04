@@ -1,7 +1,16 @@
-#include "AAnimal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/29 17:08:59 by kkoval            #+#    #+#             */
+/*   Updated: 2025/03/29 18:10:24 by kkoval           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
@@ -9,6 +18,8 @@ int main() {
     // Create objects of Cat and Dog
     Dog dog1;
     Cat cat1;
+    Cat *cat = new Cat;
+    //AAnimal lucy; //cannot be created, just to test
 
     // Set some ideas for both
     dog1.setIdea(0, "Chase a ball");
@@ -52,5 +63,7 @@ int main() {
     dog3.makeSound();
     cat3.makeSound();
 
+    delete cat;
+    //delete lucy;
     return 0;
 }
